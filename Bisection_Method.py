@@ -1,6 +1,5 @@
 import sympy as sym
 from sympy.functions.elementary.complexes import principal_branch
-import matplotlib.pyplot as plt
 
 # Aralık değerlerimiz
 xa=0.5
@@ -29,18 +28,13 @@ def Yarılama():
 dfa=df(xa)    
 dfb=df(xb)
 
-noktalar = []
 
 if dfa*dfb>0 :
     print("Bu noktalar arasında yerel minimum/maksimum noktası yoktur !")
 else:
     while True:
         xk,xa,xb = Yarılama()
-        noktalar.append(xk)
         if df(xk)==0 or (xb-xa)<10**(-10):
             break
-print(noktalar)
-a = len(noktalar)
-plt.plot(xk,range(0,a))
-plt.show()
+
 print("The best value of x : ",xk)
